@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -9,10 +10,26 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrl: './products.component.scss',
 })
 export class ProductsComponent {
-  constructor(private meta: Meta, private title: Title) {}
+  constructor(
+    private meta: Meta,
+    private title: Title,
+    private route: ActivatedRoute
+  ) {}
   ngOnInit(): void {
-    setTimeout(() => {
-      
-    }, 2000);
+    this.route.data.subscribe((data: any) => {
+      this.title.setTitle(data.title);
+      this.meta.updateTag({
+        property: 'og:title',
+        content: data.title,
+      });
+      this.meta.updateTag({
+        property: 'og:description',
+        content: data.description,
+      });
+      this.meta.updateTag({
+        property: 'og:image',
+        content: data.image,
+      });
+    });
   }
 }
