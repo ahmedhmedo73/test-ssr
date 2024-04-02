@@ -21,10 +21,10 @@ export class AppComponent {
     this.meta.updateTag({
       property: 'og:description',
       content: 'A detailed description of my Angular 17 SSR app content.',
-    });
+    }); 
     this.meta.updateTag({
       property: 'og:image',
-      content: 'https://example.com/my-image.jpg',
+      content: 'https://logowik.com/content/uploads/images/google-black1762.jpg',
     });
   }
 }

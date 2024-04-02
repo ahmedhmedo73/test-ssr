@@ -22,7 +22,7 @@ export class ProductsComponent {
     });
     this.meta.updateTag({
       property: 'og:image',
-      content: 'https://example.com/my-image.jpg',
+      content: 'https://cdn3.iconfinder.com/data/icons/transparent-on-dark-grey/500/icon-02-512.png',
     });
   }
 }
