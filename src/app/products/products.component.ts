@@ -16,19 +16,21 @@ export class ProductsComponent {
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this.route.data.subscribe((data: any) => {
-      this.title.setTitle(data.title);
+    this.route.data.subscribe(({ meta }: any) => {
+      console.log(meta);
+
+      this.title.setTitle(meta.title);
       this.meta.updateTag({
         property: 'og:title',
-        content: data.title,
+        content: meta.title,
       });
       this.meta.updateTag({
         property: 'og:description',
-        content: data.description,
+        content: meta.description,
       });
       this.meta.updateTag({
         property: 'og:image',
-        content: data.image,
+        content: meta.image,
       });
     });
   }
